@@ -1,10 +1,11 @@
 import 'package:comida_app/constants.dart';
-import 'package:comida_app/src/screens/Card/CardScreen.dart';
+import 'package:comida_app/src/helpers/dependency_injection.dart';
 import 'package:comida_app/src/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
+  DependencyInjection.initialize();
 }
 
 class MyApp extends StatelessWidget {
@@ -24,4 +25,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

@@ -1,6 +1,8 @@
 class Get {
   Get._();
-  static Get i = Get._();
+  static Get instace = Get._();
+
+
 
   Map<String, dynamic> _data = Map();
 
