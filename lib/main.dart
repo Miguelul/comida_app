@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Food App',
       theme: ThemeData(
         scaffoldBackgroundColor: kBackgroundColor,
         primaryColor: kPrimaryColor,
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
           bodyColor: kTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-     home: HomeScreen(),
-      // home: LoginScreen(),
+    //  home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
