@@ -1,5 +1,7 @@
 import 'package:comida_app/constants.dart';
 import 'package:comida_app/src/helpers/dependency_injection.dart';
+import 'package:comida_app/src/helpers/routers/pages.dart';
+import 'package:comida_app/src/screens/Card/CardScreen.dart';
 import 'package:comida_app/src/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +23,8 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+        initialRoute: Pages.INITIAL,
+        routes: Pages.routes,
     );
   }
 }

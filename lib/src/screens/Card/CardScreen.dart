@@ -1,6 +1,6 @@
 
-import 'package:comida_app/src/screens/Card/Body.dart';
-import 'package:comida_app/src/screens/Card/NavigationBar.dart';
+import 'package:comida_app/src/screens/Card/components/Body.dart';
+import 'package:comida_app/src/screens/Card/components/NavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

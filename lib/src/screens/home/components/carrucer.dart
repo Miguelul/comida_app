@@ -33,10 +33,11 @@ class Carrucer extends StatelessWidget {
             showIndicator: true,
             indicatorBgPadding: 7.0,
             images: [
-              ExactAssetImage("assets/images/img.png"),
-              ExactAssetImage("assets/images/bottom_img_1.png"),
-              ExactAssetImage("assets/images/img.png"),
-              ExactAssetImage("assets/images/bottom_img_1.png"),
+              Image.asset("assets/images/korean-food-kim-bap-steamed-rice-with-vegetables-seaweed_1150-43007.png", fit: BoxFit.cover),
+              Image.asset("assets/images/pad-thai-stir-fried-rice-noodles_1339-104869.jpg",fit: BoxFit.cover),
+              Image.asset("assets/images/korean-food-kim-bap-steamed-rice-with-vegetables-seaweed_1150-43007.png", fit: BoxFit.cover),
+            
+           
             ],
           ),
         ),

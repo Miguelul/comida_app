@@ -1,5 +1,5 @@
 
-import 'package:comida_app/src/screens/Card/CartCard.dart';
+import 'package:comida_app/src/screens/Card/components/CartCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
