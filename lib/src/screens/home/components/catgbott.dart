@@ -20,7 +20,7 @@ class BottoMore extends StatelessWidget {
         child: Row(
           children: [
             Categoriatext(
-              text: "Producto",
+              text: "Categorias",
             ),
             Spacer(),
             FlatButton(

@@ -15,8 +15,10 @@ class Foryou extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal:kDefaultPadding, vertical: 15),
       child: Container(
         height: 100,
+        
            decoration: BoxDecoration(
             color: kPrimaryColor,
+           
                  gradient: LinearGradient(
                     begin: Alignment.topRight,
                     end: Alignment.bottomLeft,
@@ -30,7 +32,9 @@ class Foryou extends StatelessWidget {
               color: Colors.white24,
               width: 1,
             ),
-          )
+            
+           
+          ),
       ),
     );
   }

@@ -1,8 +1,6 @@
 class Get {
   Get._();
-  static Get instace = Get._();
-
-
+  static Get i = Get._();
 
   Map<String, dynamic> _data = Map();
 
@@ -11,7 +9,7 @@ class Get {
     _data[key] = dependency;
   }
 
-  void find<T>() {
+  T find<T>() {
     final String key = T.runtimeType.toString();
     return _data[key];
   }
