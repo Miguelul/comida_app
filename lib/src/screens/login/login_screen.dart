@@ -11,7 +11,6 @@ class LoginScreen extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: Scaffold(
-
         appBar: AppBar(title: const Text(_title)),
         body: const LoginFormState(),
       ),

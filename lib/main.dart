@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
           bodyColor: kTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
-     // home: LoginScreen(),
+      // home: HomeScreen(),
+     home: LoginScreen(),
         initialRoute: Pages.INITIAL,
         routes: Pages.routes,
 
