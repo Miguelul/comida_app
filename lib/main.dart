@@ -3,6 +3,7 @@ import 'package:comida_app/src/helpers/dependency_injection.dart';
 import 'package:comida_app/src/helpers/routers/pages.dart';
 import 'package:comida_app/src/screens/Card/CardScreen.dart';
 import 'package:comida_app/src/screens/home/home_screen.dart';
+import 'package:comida_app/src/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,15 +17,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Food App',
       theme: ThemeData(
         scaffoldBackgroundColor: kBackgroundColor,
         primaryColor: kPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+        textTheme: Theme.of(context).textTheme.apply(
+          bodyColor: kTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: HomeScreen(),
+     // home: LoginScreen(),
         initialRoute: Pages.INITIAL,
         routes: Pages.routes,
+
     );
   }
 }
