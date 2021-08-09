@@ -1,8 +1,10 @@
 import 'package:comida_app/src/screens/home/components/body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
+import 'components/home_tab_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -14,9 +16,16 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-      appBar: buildAppBar(),
-      body: Body(),
+
+    return ChangeNotifierProvider<HomeTabController>(
+      create: (_) {
+        final controller = HomeTabController();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          controller.afterFirstLayout();
+        });
+        return controller;
+      },
+      child: Body(),
     );
   }
 

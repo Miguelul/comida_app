@@ -2,18 +2,15 @@ import 'package:comida_app/src/data/models/menuale.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../constants.dart';
-import 'dish_item.dart';
 
-class Cardf extends StatelessWidget {
+class HorizontalDishes extends StatelessWidget {
   final List<MenuAle> dishes;
   final String title;
   final VoidCallback onViewAll;
-  final MenuAle item;
-  const Cardf({
+  const HorizontalDishes({
     Key key,
-    this.item,
-    this.dishes,
-    this.title,
+    @required this.dishes,
+    @required this.title,
     this.onViewAll,
   }) : super(key: key);
 
@@ -43,27 +40,16 @@ class Cardf extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 0, left: 0, bottom: 50),
                   child: Container(
-                    width: 240,
-                    child: CupertinoButton(
-                      child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (_, index) {
-                final item = dishes[index];
-                return DishHomeItem(
-                  key: UniqueKey(),
-                  item: item,
-                  isFirst: index == 0,
-                );
-              },
-              itemCount: dishes.length,
-            ),
-                      onPressed: () {},
-                    ),
-                    decoration: BoxDecoration(
-                      color: kPrimaryColor,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                      ),
+                    width: 300,
+                    height: 303,
+                    color: Colors.blue,
+                     child: ListView.builder(
+                       scrollDirection: Axis.horizontal,
+                       itemBuilder: (_, index) {
+                        final item = dishes[index];
+                        return Text(item.name);
+                      },
+                      itemCount: dishes.length,
                     ),
                   ),
                 ),
@@ -75,3 +61,4 @@ class Cardf extends StatelessWidget {
     );
   }
 }
+

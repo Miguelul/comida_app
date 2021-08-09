@@ -2,7 +2,7 @@ import 'package:meta/meta.dart' show required;
 
 class MenuAle {
   final int id;
-  final String name, imagen;
+  final String name, imagen, description;
   final double price, rate;
 
   MenuAle({
@@ -11,5 +11,6 @@ class MenuAle {
     @required this.imagen,
     @required this.price,
     @required this.rate,
+    @required this.description
   });
 }

@@ -6,15 +6,13 @@ import 'package:comida_app/src/helpers/get.dart';
 
 
 abstract class DependencyInjection {
-static void initialize(){
+ static void initialize() {
 
-  final ProductoAleRepImp menuRepsitory = ProductoAleRepImp(
-    ProductoProvider()
-  );
+    final ProductoAleRepImp productoRepository = ProductoAleRepImp(
+      ProductoProvider(),
+    );
 
-  Get.i.put<ProductoRepository>(menuRepsitory);
-
-
+    Get.i.put<ProductoRepository>(productoRepository);    
   }
 }
 

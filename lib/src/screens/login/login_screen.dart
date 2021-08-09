@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
       title: _title,
       home: Scaffold(
 
-        appBar: AppBar(title: const Text(_title)),
+        // appBar: AppBar(title: const Text(_title)),
         body: const LoginFormState(),
       ),
     );
@@ -35,47 +35,50 @@ class _LoginFormStatefulWidgetState extends State<LoginFormState> {
     var edgeInsets = EdgeInsets.all(kDefaultPadding);
         return Form(
             key: _formKey,
-            child: Container(
-              margin:
-                  edgeInsets,
+            child: Padding(
+            padding: const EdgeInsets.only(top: 200),
+              child: Container(
+                margin:
+                    edgeInsets,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Username or Email',
-                ),
-                validator: (String value) {
-                  return validaUsername(value);
-                },
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Password',
-                ),
-                obscureText: true,
-                validator: (String value) {
-                  return validaPassword(value);
-                },
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    // Validate will return true if the form is valid, or false if
-                    // the form is invalid.
-                    if (_formKey.currentState.validate()) {
-                      // Process data.
-                    }
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Username or Email',
+                  ),
+                  validator: (String value) {
+                    return validaUsername(value);
                   },
-                  child: const Text('Enter'),
-                )
-              ,
-            ],
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Password',
+                  ),
+                  obscureText: true,
+                  validator: (String value) {
+                    return validaPassword(value);
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      // Validate will return true if the form is valid, or false if
+                      // the form is invalid.
+                      if (_formKey.currentState.validate()) {
+                        // Process data.
+                      }
+                    },
+                    child: const Text('Enter'),
+                  )
+                ,
+              ],
           ),
-        ));
+        ),
+            ));
   }
 
   String validaUsername(String value) {
