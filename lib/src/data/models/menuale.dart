@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart' show required;
 
 class MenuAle {
-  final int id;
+  final String id;
   final String name, imagen, description;
   final double price, rate;
 

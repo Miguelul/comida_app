@@ -1,6 +1,6 @@
 
 import 'package:comida_app/constants.dart';
-import 'package:comida_app/src/screens/home/components/home_controller.dart';
+import 'package:comida_app/src/screens/home/home_controller.dart';
 import 'package:comida_app/src/screens/home/components/home_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
