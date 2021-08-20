@@ -12,10 +12,6 @@ class HomeTabController extends ChangeNotifier {
    final List<Category> categories = [
     Category(
       iconPath: "assets/icons/flower.svg",
-      label: "Breakfast",
-    ),
-    Category(
-      iconPath: "assets/icons/flower.svg",
       label: "Fast food",
     ),
     Category(

@@ -15,7 +15,7 @@ class HomeController extends ChangeNotifier {
   void Function()? onDispose;
 
   final TabController tabController = TabController(
-    length: 4,
+    length: 3,
     vsync: NavigatorState(),
   );
 
@@ -26,16 +26,6 @@ class HomeController extends ChangeNotifier {
     });
   }
 
-  void toggleFavorite(MenuAle dish) {
-    Map<int, MenuAle> copy = Map<int, MenuAle>.from(_favorites);
-    if (isFavorite(dish)) {
-      copy.remove(dish.id);
-    } else {
-      copy[int.parse(dish.id!)] = dish;
-    }
-    _favorites = copy;
-    notifyListeners();
-  }
 
   void deleteFavorite(MenuAle dish) {
     Map<int, MenuAle> copy = Map<int, MenuAle>.from(_favorites);

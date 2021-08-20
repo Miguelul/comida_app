@@ -13,21 +13,17 @@ class HomeBottomBar extends StatelessWidget {
 
   final List<_BottomBarItem> _items = [
     _BottomBarItem(
-      icon: 'assets/icons/back_arrow.svg',
+      icon: 'assets/icons/icons8-home.svg',
       label: 'Home',
     ),
     _BottomBarItem(
-      icon: 'assets/icons/back_arrow.svg',
+      icon: 'assets/icons/icons8-briefcase.svg',
       label: 'Favorites',
     ),
     _BottomBarItem(
       icon: 'assets/icons/back_arrow.svg',
       label: 'Notifications',
     ),
-    _BottomBarItem(
-      icon: 'assets/icons/back_arrow.svg',
-      label: 'More',
-    )
   ];
 
   @override

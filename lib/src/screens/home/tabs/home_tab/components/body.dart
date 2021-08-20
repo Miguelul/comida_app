@@ -34,16 +34,7 @@ class Body extends StatelessWidget {
                   CategoriesMenu(),
                   Foryou(
                   ),
-                  Container(
-                    color: Colors.red,
-                    child: 
-                    Column(
-                      children: [
-                        Text(controller1.popularMenu.length.toString()),
-                      ],
-                    ),
-
-                  ),
+              
                   // SliverList(delegate: SliverChildBuilderDelegate(
                   //   (context, index){
                   //     return Card(imageUrl: imageUrl)
@@ -51,30 +42,39 @@ class Body extends StatelessWidget {
                   //   }
                   //  ),
                   // ),
-                  Builder(builder: (context) {
-                    final List<MenuAle> popularMenu =
-                        context.select<HomeTabController, List<MenuAle>>(
-                      (_) => _.popularMenu,
-                    );
-                    return HorizontalDishes(
-                          dishes: popularMenu,
-                          title: "Popular Menu",
-                          onViewAll: () {},
-                    );
-                  })
-                  // Builder(
-                  //     builder: (context) {
-                  //       final List<MenuAle> popularMenu = context.select<HomeTabController, List<MenuAle>>(
-                  //         (_) => _.popularMenu,
-                  //       );
-                  //       return HorizontalDishes(
-                          // dishes: popularMenu,
-                          // title: "Popular Menu",
-                          // onViewAll: () {},
-                  //       );
-                  //     },
-                  //   ),
-                ]),
+                  Container(
+                    height: 800,
+                    child: ListView.builder(
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return
+                    Builder(builder: (context) {
+                      final List<MenuAle> popularMenu =
+                          context.select<HomeTabController, List<MenuAle>>(
+                        (_) => _.popularMenu,
+                      );
+
+                      return HorizontalDishes(
+                            dishes: popularMenu[index],
+                            title: "Popular Menu",
+                            onViewAll: () {},
+                      );
+                    });
+                    }
+                    // Builder(
+                    //     builder: (context) {
+                    //       final List<MenuAle> popularMenu = context.select<HomeTabController, List<MenuAle>>(
+                    //         (_) => _.popularMenu,
+                    //       );
+                    //       return HorizontalDishes(
+                            // dishes: popularMenu,
+                            // title: "Popular Menu",
+                            // onViewAll: () {},
+                    //       );
+                    //     },
+                    //   ),
+                ),
+                  )]),
               ),
             ],
         );

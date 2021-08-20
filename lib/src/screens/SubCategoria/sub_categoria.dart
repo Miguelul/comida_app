@@ -84,7 +84,7 @@ class SubCategoria extends StatelessWidget {
                                     mainAxisSpacing: defaultPadding,
                                     crossAxisSpacing: defaultPadding,
                                   ),
-                                  itemBuilder: (context, index) {
+                                 itemBuilder: (context, index) { 
                                     return Builder(builder: (context) {
                                       final List<MenuAle> popularMenu =
                                           context.select<HomeTabController,

@@ -1,4 +1,3 @@
-
 import 'package:comida_app/src/components/fav_btn.dart';
 import 'package:comida_app/src/components/price.dart';
 import 'package:comida_app/src/data/models/menuale.dart';
@@ -24,6 +23,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   get defaultPadding => null;
   @override
   Widget build(BuildContext context) {
+ 
     return Scaffold(
       bottomNavigationBar: SafeArea(
         child: SizedBox(
@@ -68,7 +68,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ],
             ),
           ),
-          SizedBox(height: defaultPadding ),
+          SizedBox(height: defaultPadding),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(

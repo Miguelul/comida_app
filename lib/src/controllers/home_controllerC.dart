@@ -1,4 +1,3 @@
-import 'package:comida_app/src/data/models/ProductItem.dart';
 import 'package:comida_app/src/data/models/menuale.dart';
 import 'package:comida_app/src/data/repositories/ProductoAleRep.dart';
 import 'package:comida_app/src/helpers/get.dart';
@@ -13,7 +12,9 @@ class HomeControllerC extends ChangeNotifier {
   final ProductoRepository? _productoRepository =
       Get.i.find<ProductoRepository>();
 
-  List<MenuAle> _popularMenu = [];
+  Map<int, MenuAle> _carts = {};
+  Map<int, MenuAle> get carts => _carts;
+List<MenuAle> _popularMenu = [];
   List<MenuAle> get popularMenu => _popularMenu;
   void afterFirstLayout() {
     _init();
@@ -42,9 +43,6 @@ class HomeControllerC extends ChangeNotifier {
     }
     cart.add(ProductItem(product: product));
     notifyListeners();
-    print(
-        "//////////////////////////////////////////////////////////////////////");
-    print(cart);
   }
 
   int totalProduct(BuildContext context) {
@@ -56,15 +54,31 @@ class HomeControllerC extends ChangeNotifier {
   int totalCartItems() => cart.fold(
       0, (previousValue, element) => previousValue + element.quantity);
 
-   deleteFavorite(ProductItem dish) {
-
+  void deleteFavorite(ProductItem dish) {
     cart.remove(dish);
-     print(
-        "//////////////////////////////////////////////////////////////////////");
-    print(cart);
-    print("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
-    print(dish);
-  }
+      Map<int, MenuAle> copy = Map<int, MenuAle>.from(_carts);
+      if (copy.containsKey(dish.product.id)) {
+        copy.remove(dish.product.id);
+        _carts = copy;
+        notifyListeners();
+      }
     notifyListeners();
   }
+}
+
+class ProductItem {
+  ProductItem({this.quantity = 1, required this.product});
+  int quantity;
+  final MenuAle product;
+
+  increment() {
+    quantity++;
+  }
+
+  // void add() {}
+
+  // void substract() {}
+}
+
+
 

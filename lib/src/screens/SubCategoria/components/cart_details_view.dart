@@ -1,4 +1,3 @@
-
 import 'package:comida_app/src/controllers/home_controllerC.dart';
 import 'package:flutter/material.dart';
 
@@ -11,25 +10,26 @@ class CartDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Cart", style: Theme.of(context).textTheme.headline6),
-          ...List.generate(
-            controller.cart.length,
-            (index) => CartDetailsViewCard(productItem: controller.cart[index]),
+          Expanded(
+            child: ListView.builder(
+                itemCount: controller.cart.length,
+                itemBuilder: (context, index) {
+                  return CartDetailsViewCard(productItem: controller.cart[index]);
+                }),
           ),
           SizedBox(height: 20),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text("Next - \$30"),
+              child: Text("Next - \$30   "+controller.cart.length.toString()),
             ),
           )
         ],
-      ),
     );
   }
 }

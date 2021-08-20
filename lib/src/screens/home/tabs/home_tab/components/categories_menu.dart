@@ -1,4 +1,6 @@
+import 'package:comida_app/constants.dart';
 import 'package:comida_app/src/data/models/category.dart';
+import 'package:comida_app/src/screens/SubCategoria/sub_categoria.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -69,33 +71,40 @@ class CategoryButton extends StatelessWidget {
           ),
           child: Column(
                 children: [
-              Expanded(
-                child:
                  Container(
                    width: 50,
+                   height: 50,
                    decoration: BoxDecoration(
-                     color: Colors.red,
+                     color: kBackgroundColor,
                      shape: BoxShape.circle
                    ),
                   child: SvgPicture.asset(
                     category.iconPath,
                   ), 
                 ),
-              ),
-              SizedBox(height: 15),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+              
+              SizedBox(height: 15),    
+              SizedBox(
+                width: 40,
+                height: 30,
                 child: Text(
-                  category.label,
-                  style: TextStyle(
-                    color: Colors.black,
+                               
+                    category.label,
+                    style: TextStyle(
+                      
+                      color: Colors.black,
+                    ),
                   ),
-                ),
               ),
             ],
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+           Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => SubCategoria()),
+               );
+        },
       ),
     );
   }

@@ -1,7 +1,6 @@
 
 import 'package:comida_app/src/controllers/home_controllerC.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../constants.dart';
 
 
@@ -13,8 +12,10 @@ class CardShortView extends StatelessWidget {
 
   final HomeControllerC controller;
 
+
   @override
   Widget build(BuildContext context) {
+     
     return Row(
       children: [
         Text(

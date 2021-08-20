@@ -1,8 +1,10 @@
 import 'package:comida_app/constants.dart';
+import 'package:comida_app/src/controllers/home_controllerC.dart';
 import 'package:comida_app/src/helpers/dependency_injection.dart';
 import 'package:comida_app/src/routers/pages.dart';
 import 'package:comida_app/src/screens/home/tabs/home_tab/home_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +15,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(providers: [
+      ChangeNotifierProvider<HomeControllerC>(create: (_)=>HomeControllerC())
+    ],
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food App',
       theme: ThemeData(
@@ -28,6 +33,7 @@ class MyApp extends StatelessWidget {
         initialRoute: Pages.INITIAL,
         routes: Pages.routes,
 
+    )
     );
   }
 }
