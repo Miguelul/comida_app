@@ -26,6 +26,14 @@ class HomeTabController extends ChangeNotifier {
       iconPath: "assets/icons/flower.svg",
       label: "Desserts",
     ),
+     Category(
+      iconPath: "assets/icons/flower.svg",
+      label: "Breakfast",
+    ),
+     Category(
+      iconPath: "assets/icons/flower.svg",
+      label: "Breakfast",
+    ),
   ];
 
  List<MenuAle> _popularMenu = [];

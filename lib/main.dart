@@ -1,7 +1,7 @@
 import 'package:comida_app/constants.dart';
 import 'package:comida_app/src/helpers/dependency_injection.dart';
-import 'package:comida_app/src/helpers/routers/pages.dart';
-import 'package:comida_app/src/screens/home/home_screen.dart';
+import 'package:comida_app/src/routers/pages.dart';
+import 'package:comida_app/src/screens/home/tabs/home_tab/home_tab.dart';
 import 'package:flutter/material.dart';
 
 void main() {

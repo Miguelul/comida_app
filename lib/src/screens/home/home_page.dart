@@ -1,13 +1,15 @@
-import 'package:comida_app/src/screens/Card/CardScreen.dart';
+import 'package:comida_app/src/screens/SubCategoria/sub_categoria.dart';
 import 'package:comida_app/src/screens/home/components/home_bottom_bar.dart';
-import 'package:comida_app/src/screens/home/components/home_controller.dart';
+import 'package:comida_app/src/screens/home/home_controller.dart';
+import 'package:comida_app/src/screens/home/tabs/card_tab/card_tab.dart';
+import 'package:comida_app/src/screens/home/tabs/compras/compras.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'home_screen.dart';
+import 'tabs/home_tab/home_tab.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,9 @@ class HomePage extends StatelessWidget {
               controller: controller.tabController,
               children: [
                 HomeScreen(),
-                HomeScreen(),
-                CardScreen(),
-                HomeScreen()
+                SubCategoria(),
+                Compras(),
+                CardTab(),
               ],
             ),
           ),

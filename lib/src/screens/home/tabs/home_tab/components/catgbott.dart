@@ -3,12 +3,12 @@ import 'package:comida_app/constants.dart';
 
 class BottoMore extends StatelessWidget {
   const BottoMore({
-    Key key,
+    Key? key,
     this.title,
     this.press,
   }) : super(key: key);
-  final String title;
-  final Function press;
+  final String? title;
+  final Function? press;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,12 +23,13 @@ class BottoMore extends StatelessWidget {
               text: "Categorias",
             ),
             Spacer(),
+            // ignore: deprecated_member_use
             FlatButton(
               shape:
                   RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               color: kPrimaryColor,
-              onPressed:press,
-              child: Text(title	, style: TextStyle(color: Colors.white)),
+              onPressed:press as void Function()?,
+              child: Text(title!	, style: TextStyle(color: Colors.white)),
             )
           ],
         ),
@@ -39,10 +40,10 @@ class BottoMore extends StatelessWidget {
 
 class Categoriatext extends StatelessWidget {
   const Categoriatext({
-    Key key,
+    Key? key,
     this.text,
   }) : super(key: key);
-  final String text;
+  final String? text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -52,7 +53,7 @@ class Categoriatext extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: kDefaultPadding / 4),
             child: Text(
-              text,
+              text!,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),

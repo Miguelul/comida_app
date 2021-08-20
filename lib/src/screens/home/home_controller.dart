@@ -10,7 +10,7 @@ class HomeController extends ChangeNotifier {
   Map<int, MenuAle> _favorites = {};
   Map<int, MenuAle> get favorites => _favorites;
 
-  bool isFavorite(MenuAle dish) => _favorites.containsKey(dish.id);
+  bool isFavorite(MenuAle product) => _favorites.containsKey(product.id);
 
   void Function()? onDispose;
 

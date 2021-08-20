@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
-import '../../../../constants.dart';
+import '../../../../../../constants.dart';
 
 
 
 class Foryou extends StatelessWidget {
   const Foryou({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

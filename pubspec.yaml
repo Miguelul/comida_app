@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
@@ -29,14 +29,16 @@ dependencies:
   cupertino_icons: ^1.0.3
   flutter_svg: ^0.22.0 #it helps us to use SVG
   cached_network_image: ^3.1.0
-  provider: ^4.3.3
- 
+  provider: ^5.0.0
+  flutter_slidable: ^0.6.0
+  google_fonts: ^2.1.0
   
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  carousel_pro: ^1.0.0
+  
+  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

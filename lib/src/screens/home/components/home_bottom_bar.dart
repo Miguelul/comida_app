@@ -1,6 +1,6 @@
 
 import 'package:comida_app/constants.dart';
-import 'package:comida_app/src/screens/home/components/home_controller.dart';
+import 'package:comida_app/src/screens/home/home_controller.dart';
 import 'package:comida_app/src/screens/home/components/home_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 
 class HomeBottomBar extends StatelessWidget {
-  HomeBottomBar({Key key}) : super(key: key);
+  HomeBottomBar({Key? key}) : super(key: key);
 
   final List<_BottomBarItem> _items = [
     _BottomBarItem(
@@ -59,9 +59,9 @@ class HomeBottomBar extends StatelessWidget {
 }
 class BottomBarTab extends StatelessWidget {
   const BottomBarTab({
-    Key key,
-    @required this.item,
-    @required this.isActive,
+    Key? key,
+    required this.item,
+    required this.isActive,
   }) : super(key: key);
 
   final _BottomBarItem item;
@@ -86,8 +86,8 @@ class _BottomBarItem {
   final String icon, label;
 
   _BottomBarItem({
-    @required this.icon,
-    @required this.label,
+    required this.icon,
+    required this.label,
   });
 }
 

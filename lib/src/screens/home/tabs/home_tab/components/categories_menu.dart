@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-import 'home_tab_controller.dart';
+import '../home_tab_controller.dart';
 
 
 class CategoriesMenu extends StatelessWidget {
-  const CategoriesMenu({Key key}) : super(key: key);
+  const CategoriesMenu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +34,10 @@ class CategoriesMenu extends StatelessWidget {
 
 class CategoryButton extends StatelessWidget {
   const CategoryButton({
-    Key key,
-    @required this.category,
-    @required this.isFirst,
-  }) : super(key: key);
+    
+    required this.category,
+    required this.isFirst,
+  }) ;
 
   final Category category;
   final bool isFirst;
@@ -54,10 +54,11 @@ class CategoryButton extends StatelessWidget {
       child: CupertinoButton(
         padding: EdgeInsets.zero,
         child: Container(
+          width: 	70,
           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(35),
             boxShadow: [
               BoxShadow(
                 color: Colors.black12,
@@ -67,18 +68,28 @@ class CategoryButton extends StatelessWidget {
             ],
           ),
           child: Column(
-            children: [
+                children: [
               Expanded(
-                child: SvgPicture.asset(
-                  category.iconPath,
-                  width: 80,
+                child:
+                 Container(
+                   width: 50,
+                   decoration: BoxDecoration(
+                     color: Colors.red,
+                     shape: BoxShape.circle
+                   ),
+                  child: SvgPicture.asset(
+                    category.iconPath,
+                  ), 
                 ),
               ),
               SizedBox(height: 15),
-              Text(
-                category.label,
-                style: TextStyle(
-                  color: Colors.black,
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  category.label,
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ],

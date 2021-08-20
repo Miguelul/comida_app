@@ -1,16 +1,16 @@
 import 'package:comida_app/src/data/models/menuale.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../../constants.dart';
+import '../../../../../../constants.dart';
 
 class HorizontalDishes extends StatelessWidget {
   final List<MenuAle> dishes;
   final String title;
-  final VoidCallback onViewAll;
+  final VoidCallback? onViewAll;
   const HorizontalDishes({
-    Key key,
-    @required this.dishes,
-    @required this.title,
+    Key? key,
+    required this.dishes,
+    required this.title,
     this.onViewAll,
   }) : super(key: key);
 
@@ -43,14 +43,14 @@ class HorizontalDishes extends StatelessWidget {
                     width: 300,
                     height: 303,
                     color: Colors.blue,
-                     child: ListView.builder(
-                       scrollDirection: Axis.horizontal,
-                       itemBuilder: (_, index) {
-                        final item = dishes[index];
-                        return Text(item.name);
-                      },
-                      itemCount: dishes.length,
-                    ),
+                    //  child: ListView.builder(
+                    //    scrollDirection: Axis.horizontal,
+                    //    itemBuilder: (_, index) {
+                    //     final item = dishes[index];
+                    //     return Text(item.imagen);
+                    //   },
+                    //   itemCount: dishes.length,
+                    // ),
                   ),
                 ),
               ],

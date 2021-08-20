@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
 }
 
 class LoginFormState extends StatefulWidget {
-  const LoginFormState({Key key}) : super(key: key);
+  const LoginFormState({Key? key}) : super(key: key);
 
   @override
   State<LoginFormState> createState() => _LoginFormStatefulWidgetState();
@@ -48,7 +48,7 @@ class _LoginFormStatefulWidgetState extends State<LoginFormState> {
                   decoration: const InputDecoration(
                     hintText: 'Username or Email',
                   ),
-                  validator: (String value) {
+                  validator: (String? value) {
                     return validaUsername(value);
                   },
                 ),
@@ -57,7 +57,7 @@ class _LoginFormStatefulWidgetState extends State<LoginFormState> {
                     hintText: 'Password',
                   ),
                   obscureText: true,
-                  validator: (String value) {
+                  validator: (String? value) {
                     return validaPassword(value);
                   },
                 ),
@@ -68,7 +68,7 @@ class _LoginFormStatefulWidgetState extends State<LoginFormState> {
                     onPressed: () {
                       // Validate will return true if the form is valid, or false if
                       // the form is invalid.
-                      if (_formKey.currentState.validate()) {
+                      if (_formKey.currentState!.validate()) {
                         // Process data.
                       }
                     },
@@ -81,14 +81,14 @@ class _LoginFormStatefulWidgetState extends State<LoginFormState> {
             ));
   }
 
-  String validaUsername(String value) {
+  String? validaUsername(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter some text';
     }
     return null;
   }
 
-  String validaPassword(String value) {
+  String? validaPassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter some password';
     }
