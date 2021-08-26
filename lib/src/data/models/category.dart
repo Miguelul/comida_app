@@ -1,10 +1,12 @@
 
 
 class Category {
-  final String iconPath, label;
+  final String id, name, imagenes;
 
   Category({
-    required this.iconPath,
-    required this.label,
+    required this.id,
+    required this.name,
+    required this.imagenes
+
   });
 }

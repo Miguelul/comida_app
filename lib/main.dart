@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
-      ChangeNotifierProvider<HomeControllerC>(create: (_)=>HomeControllerC())
+      ChangeNotifierProvider<GroceryStoreBLoC>(create: (_)=>GroceryStoreBLoC())
     ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,

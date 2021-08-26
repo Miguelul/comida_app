@@ -1,9 +1,110 @@
 import 'package:comida_app/src/data/models/menuale.dart';
 import 'package:comida_app/src/data/repositories/ProductoAleRep.dart';
 import 'package:comida_app/src/helpers/get.dart';
-import 'package:comida_app/src/screens/home/tabs/home_tab/home_tab_controller.dart';
+import 'package:comida_app/src/screens/home/components/home_tab_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+
+enum GroceryState {
+  normal,
+  details,
+  cart,
+}
+
+class GroceryStoreBLoC with ChangeNotifier {
+    final ProductoRepository? _productoRepository =
+      Get.i.find<ProductoRepository>();
+  
+  GroceryState groceryState = GroceryState.normal;
+  
+  List<MenuAle> _popularMenu = [];
+  List<MenuAle> get popularMenu => _popularMenu;
+  void afterFirstLayout() {
+    _init();
+  }
+  void _init() async {
+    _popularMenu = await _productoRepository!.getMenuAle();
+    notifyListeners();
+  }
+
+
+  List<MenuAle> catalog = List.unmodifiable(_popularMenu);
+  List<GroceryProductItem> cart = [];
+
+  void changeToNormal() {
+    groceryState = GroceryState.normal;
+    notifyListeners();
+  }
+
+  void changeToCart() {
+    groceryState = GroceryState.cart;
+    notifyListeners();
+  }
+
+  void changeToDetails() {
+    groceryState = GroceryState.details;
+    notifyListeners();
+  }
+
+  void deleteProduct(GroceryProductItem productItem) {
+    cart.remove(productItem);
+    notifyListeners();
+  }
+
+  void addProduct(MenuAle product, int quantity) {
+    for (GroceryProductItem item in cart) {
+      if (item.product.name == product.name) {
+        item.increment(quantity);
+        notifyListeners();
+        return;
+      }
+    }
+    cart.add(GroceryProductItem(product: product, quantity: quantity));
+    notifyListeners();
+  }
+
+  int totalCartElements() => cart.fold<int>(
+        0,
+        (previousValue, element) => previousValue + element.quantity,
+      );
+
+  double totalPriceElements() => cart.fold<double>(
+        0.0,
+        (previousValue, element) => previousValue + (element.quantity * element.product.price!),
+      );
+}
+
+class GroceryProductItem {
+  GroceryProductItem({this.quantity = 1, required this.product});
+  int quantity;
+  final MenuAle product;
+
+  void increment(int newQuantity) {
+    quantity += newQuantity;
+  }
+}
+
+
+
+
+//  int totalProduct(BuildContext context) {
+//     final controller = Provider.of<HomeTabController>(context);
+//     int total = controller.popularMenu.length;
+//     return total;
+//   }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 enum HomeState { normal, cart }
 

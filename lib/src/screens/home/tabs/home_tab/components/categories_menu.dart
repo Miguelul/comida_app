@@ -12,10 +12,20 @@ import '../home_tab_controller.dart';
 class CategoriesMenu extends StatelessWidget {
   const CategoriesMenu({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<HomeTabController>(context, listen: false);
-    return Container(
+      final controller = HomeTabController();
+    return ChangeNotifierProvider<HomeTabController>(
+      create: (_) {
+        final controller = HomeTabController();
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
+          controller.afterFirstLayout();
+        });
+        return controller;
+      },
+  
+    child: Container(
       height: 120,
       child: ListView(
         scrollDirection: Axis.horizontal,
@@ -30,6 +40,7 @@ class CategoriesMenu extends StatelessWidget {
           },
         ),
       ),
+   )
     );
   }
 }
@@ -79,7 +90,7 @@ class CategoryButton extends StatelessWidget {
                      shape: BoxShape.circle
                    ),
                   child: SvgPicture.asset(
-                    category.iconPath,
+                    category.,
                   ), 
                 ),
               
