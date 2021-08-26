@@ -2,8 +2,9 @@
 
 class MenuAle {
   final String? id;
-  final String? name, imagen, description;
+  final String? name, imagen, category;
   final double price, rate;
+
 
   MenuAle({
     required this.id,
@@ -11,6 +12,7 @@ class MenuAle {
     required this.imagen,
     required this.price,
     required this.rate,
-    required this.description
+    required this.category
+    // required this.description
   });
 }

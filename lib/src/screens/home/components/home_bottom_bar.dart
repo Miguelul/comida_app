@@ -21,8 +21,8 @@ class HomeBottomBar extends StatelessWidget {
       label: 'Favorites',
     ),
     _BottomBarItem(
-      icon: 'assets/icons/back_arrow.svg',
-      label: 'Notifications',
+      icon: 'assets/icons/icons8-briefcase.svg',
+      label: 'Favorites',
     ),
   ];
 

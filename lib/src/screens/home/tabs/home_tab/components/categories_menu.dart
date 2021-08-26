@@ -1,6 +1,6 @@
 import 'package:comida_app/constants.dart';
 import 'package:comida_app/src/data/models/category.dart';
-import 'package:comida_app/src/screens/SubCategoria/sub_categoria.dart';
+import 'package:comida_app/src/screens/sub_categoria/main_grocery_store.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,7 +16,7 @@ class CategoriesMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Provider.of<HomeTabController>(context, listen: false);
     return Container(
-      height: 140,
+      height: 120,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: List.generate(
@@ -56,8 +56,8 @@ class CategoryButton extends StatelessWidget {
       child: CupertinoButton(
         padding: EdgeInsets.zero,
         child: Container(
-          width: 	70,
-          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+          width: 	55,
+          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(35),
@@ -102,7 +102,7 @@ class CategoryButton extends StatelessWidget {
         onPressed: () {
            Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => SubCategoria()),
+                     MaterialPageRoute(builder: (context) => MainGroceryStoreApp()),
                );
         },
       ),

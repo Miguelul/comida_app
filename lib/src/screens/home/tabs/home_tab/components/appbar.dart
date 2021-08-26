@@ -9,7 +9,7 @@ class Appbar1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
       width: double.infinity,
-      height: headerHeight,
+      height: 70,
       color: kBackgroundColor,
       padding: const EdgeInsets.all(defaultPadding),
       child: Row(
@@ -29,7 +29,7 @@ class Appbar1 extends StatelessWidget {
                 "Caesar Rincon",
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 20
+                  fontSize:30
                 )
               )
             ],

@@ -1,8 +1,8 @@
 
 import 'package:comida_app/src/screens/home/components/home_bottom_bar.dart';
 import 'package:comida_app/src/screens/home/home_controller.dart';
-import 'package:comida_app/src/screens/home/tabs/card_tab/card_tab.dart';
 import 'package:comida_app/src/screens/home/tabs/compras/compras.dart';
+import 'package:comida_app/src/screens/home/tabs/order/order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,8 +24,8 @@ class HomePage extends StatelessWidget {
               controller: controller.tabController,
               children: [
                 HomeScreen(),
+                OrderScreen(),
                 Compras(),
-                CardTab(),
               ],
             ),
           ),
