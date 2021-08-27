@@ -6,6 +6,12 @@ import '../detalle/grocery_store_details.dart';
 import '../vista_com_subCa/grocery_store_home.dart';
 
 class GroceryStoreList extends StatelessWidget {
+  GroceryStoreList({
+    Key? key,
+
+  }): super(key: key);
+
+  
   @override
   Widget build(BuildContext context) {
     final bloc = GroceryProvider.of(context)!.bloc;
@@ -14,8 +20,8 @@ class GroceryStoreList extends StatelessWidget {
       padding: const EdgeInsets.only(top: cartBarHeight, left: 10, right: 10),
       child: StaggeredDualView(
         aspectRatio: 0.7,
-        offsetPercent: 0.3,
-        spacing: 20,
+        offsetPercent: 0,
+        spacing: 10,
         itemBuilder: (context, index) {
           final product = bloc.catalog[index];
           return GestureDetector(

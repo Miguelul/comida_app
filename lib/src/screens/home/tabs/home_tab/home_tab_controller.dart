@@ -17,7 +17,7 @@ class HomeTabController extends ChangeNotifier {
 
   List<MenuAle> _popularMenu = [];
   List<MenuAle> get popularMenu => _popularMenu;
-  void afterFirstLayout() {
+   afterFirstLayout() {
     _init();
   }
 
@@ -26,4 +26,5 @@ class HomeTabController extends ChangeNotifier {
     _category = await _categoryRepository!.getCategory();
     notifyListeners();
   }
+  
 }

@@ -1,5 +1,4 @@
 
-import 'package:comida_app/src/routers/routes.dart';
 import 'package:comida_app/src/theme/app_color.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';

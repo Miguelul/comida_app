@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:comida_app/constants.dart';
 import 'package:comida_app/src/screens/sub_categoria/bloc/grocery_store_bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -66,7 +67,12 @@ class _GroceryStoreHomeState extends State<GroceryStoreHome> {
             return SafeArea(
               bottom: false,
               child: Scaffold(
-                backgroundColor: Colors.black,
+                    backgroundColor: Colors.black,
+                    appBar: AppBar(
+                    leading: BackButton(color: primaryColor),
+                    backgroundColor: Colors.white,
+                    elevation: 0,
+                    ),
                 body: Stack(
                   children: [
                     AnimatedPositioned(

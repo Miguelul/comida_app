@@ -18,31 +18,4 @@ class HomeController extends ChangeNotifier {
     length: 3,
     vsync: NavigatorState(),
   );
-
-  void afterFirstLayout() {
-    this.tabController.addListener(() {
-      _currentPage = tabController.index;
-      notifyListeners();
-    });
-  }
-
-
-  void deleteFavorite(MenuAle dish) {
-    Map<int, MenuAle> copy = Map<int, MenuAle>.from(_favorites);
-    if (isFavorite(dish)) {
-      copy.remove(dish.id);
-      _favorites = copy;
-      notifyListeners();
-    }
-  }
-
-  @override
-  void dispose() {
-    this.tabController.dispose();
-    if (this.onDispose != null) {
-      this.onDispose!();
-    }
-    super.dispose();
-  }
-  
 }

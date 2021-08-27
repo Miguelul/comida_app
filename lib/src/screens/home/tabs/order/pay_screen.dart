@@ -1,4 +1,4 @@
-import 'package:comida_app/src/routers/routes.dart';
+
 import 'package:comida_app/src/screens/home/tabs/order/payment_method_screen.dart';
 import 'package:comida_app/src/screens/home/tabs/order/success_order_screen.dart';
 import 'package:dotted_line/dotted_line.dart';
@@ -7,7 +7,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../theme/app_color.dart';
 import 'add_address_screen.dart';
-import 'checkout_screen.dart';
 
 class PayScreen extends StatelessWidget {
   const PayScreen();

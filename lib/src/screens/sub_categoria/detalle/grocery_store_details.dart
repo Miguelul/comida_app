@@ -32,7 +32,7 @@ class _GroceryStoreDetailsState extends State<GroceryStoreDetails> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(color: Colors.black),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 0,
       ),
       backgroundColor: Colors.white,
