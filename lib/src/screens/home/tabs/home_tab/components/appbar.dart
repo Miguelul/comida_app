@@ -11,9 +11,6 @@ class Appbar1 extends StatelessWidget {
       width: double.infinity,
       height: 70,
       color: kBackgroundColor,
-      padding: const EdgeInsets.all(defaultPadding),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,6 +37,5 @@ class Appbar1 extends StatelessWidget {
           )
         ],
       ),
-    );
   }
 }

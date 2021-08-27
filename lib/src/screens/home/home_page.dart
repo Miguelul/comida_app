@@ -24,8 +24,14 @@ class HomePage extends StatelessWidget {
               controller: controller.tabController,
               children: [
                 HomeScreen(),
+<<<<<<< HEAD
                 OrderScreen(),
                 Compras(),
+=======
+                SubCategoria(),
+                Compras(),
+                CardTab(),
+>>>>>>> 7469b7d2258a0024951a334cc668187ee7ccf933
               ],
             ),
           ),

@@ -9,19 +9,8 @@ class Compras extends StatefulWidget {
 }
 
 class _ComprasState extends State<Compras> with SingleTickerProviderStateMixin {
-  TabController? _controller;
-
-  @override
-    void initState() {
-      super.initState();
       _controller = TabController(length: 2, vsync: this);
-    }
-  
-  @override
-    void dispose() {
-      _controller!.dispose();
-      super.dispose();
-    }
+    
 
   @override
   Widget build(BuildContext context) {

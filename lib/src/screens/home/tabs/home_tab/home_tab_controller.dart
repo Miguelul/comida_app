@@ -1,30 +1,49 @@
 import 'package:comida_app/src/data/models/category.dart';
 import 'package:comida_app/src/data/models/menuale.dart';
 import 'package:comida_app/src/data/repositories/ProductoAleRep.dart';
-import 'package:comida_app/src/data/repositories/categoryRepository.dart';
 import 'package:comida_app/src/helpers/get.dart';
 import 'package:flutter/widgets.dart';
 
+
 class HomeTabController extends ChangeNotifier {
-  final ProductoRepository? _productoRepository =
+  final ProductoRepository _productoRepository =
       Get.i.find<ProductoRepository>();
 
-  final CategoryRepository? _categoryRepository =
-      Get.i.find<CategoryRepository>();
+   final List<Category> categories = [
+    Category(
+      iconPath: "assets/icons/flower.svg",
+      label: "Breakfast",
+    ),
+    Category(
+      iconPath: "assets/icons/flower.svg",
+      label: "Fast food",
+    ),
+    Category(
+      iconPath: "assets/icons/flower.svg",
+      label: "Dinner",
+    ),
+    Category(
+      iconPath: "assets/icons/flower.svg",
+      label: "Desserts",
+    ),
+     Category(
+      iconPath: "assets/icons/flower.svg",
+      label: "Breakfast",
+    ),
+     Category(
+      iconPath: "assets/icons/flower.svg",
+      label: "Breakfast",
+    ),
+  ];
 
-  List<Category> _category = [];
-  List<Category> get category => _category;
-
-  List<MenuAle> _popularMenu = [];
+ List<MenuAle> _popularMenu = [];
   List<MenuAle> get popularMenu => _popularMenu;
-   afterFirstLayout() {
+  void afterFirstLayout() {
     _init();
   }
 
-  void _init() async {
-    _popularMenu = await _productoRepository!.getMenuAle();
-    _category = await _categoryRepository!.getCategory();
-    notifyListeners();
+  void _init() async{
+  _popularMenu =await _productoRepository.getMenuAle();
+  notifyListeners();
   }
-  
 }

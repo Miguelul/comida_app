@@ -1,8 +1,4 @@
-import 'package:comida_app/constants.dart';
-
-import 'package:comida_app/src/data/models/menuale.dart';
-import 'package:comida_app/src/screens/home/tabs/home_tab/components/card.dart';
-import 'package:comida_app/src/screens/sub_categoria/main_grocery_store.dart';
+import 'package:comida_app/src/data/models/category.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,73 +6,40 @@ import 'package:provider/provider.dart';
 
 import '../home_tab_controller.dart';
 
-class CategoriesMenu extends StatelessWidget {
-  const CategoriesMenu({
-    Key? key,
-    required this.category,
-  }) : super(key: key);
 
-  final List<MenuAle> category;
+class CategoriesMenu extends StatelessWidget {
+  const CategoriesMenu({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<HomeTabController>(
-        create: (_) {
-          final controller = HomeTabController();
-          WidgetsBinding.instance!.addPostFrameCallback((_) {
-            controller.afterFirstLayout();
-          });
-          return controller;
-        },
-        child: Container(
-          height: 120,
-          child: GridView.builder(
-              itemCount: 2,
-              scrollDirection: Axis.horizontal,
-
-                 gridDelegate:
-                    SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1,
-                      childAspectRatio: 0.75,
-                      mainAxisSpacing: defaultPadding,
-                      crossAxisSpacing: defaultPadding,
-                    ),
-              // Builder(builder: (context) {
-              // final List<MenuAle> popularMenu =
-              //     context.select<HomeTabController, List<MenuAle>>(
-              //   (_) => _.popularMenu,
-              // );
-              // return HorizontalDishes(
-              //       dishes: popularMenu,
-              //       title: "Popular Menu",
-              //       onViewAll: () {},
-              //             );
-              //           }
-
-              itemBuilder: (context, index) {
-                final List<MenuAle> popularMenu =
-                    context.select<HomeTabController, List<MenuAle>>(
-                  (_) => _.popularMenu,
-                );
-                return HorizontalDishes(
-                  dishes: popularMenu[index],
-                  title: "Popular Menu",
-                  onViewAll: () {},
-                );
-                // return
-                // Text(category.length.toString());
-              }),
-        )
-        );
+    final controller = Provider.of<HomeTabController>(context, listen: false);
+    return Container(
+      height: 140,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: List.generate(
+          controller.categories.length,
+          (index) {
+            final category = controller.categories[index];
+            return CategoryButton(
+              category: category,
+              isFirst: index == 0,
+            );
+          },
+        ),
+      ),
+    );
   }
 }
 
 class CategoryButton extends StatelessWidget {
   const CategoryButton({
-    required this.category,
-    required this.isFirst,
-  });
+    
+    @required this.category,
+    @required this.isFirst,
+  }) ;
 
-  final MenuAle category;
+  final Category category;
   final bool isFirst;
 
   @override
@@ -91,8 +54,8 @@ class CategoryButton extends StatelessWidget {
       child: CupertinoButton(
         padding: EdgeInsets.zero,
         child: Container(
-          width: 55,
-          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          width: 	70,
+          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(35),
@@ -105,22 +68,25 @@ class CategoryButton extends StatelessWidget {
             ],
           ),
           child: Column(
-            children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: kBackgroundColor, shape: BoxShape.circle),
-                child: SvgPicture.asset(
-                  category.imagen!,
+                children: [
+              Expanded(
+                child:
+                 Container(
+                   width: 50,
+                   decoration: BoxDecoration(
+                     color: Colors.red,
+                     shape: BoxShape.circle
+                   ),
+                  child: SvgPicture.asset(
+                    category.iconPath,
+                  ), 
                 ),
               ),
               SizedBox(height: 15),
-              SizedBox(
-                width: 40,
-                height: 30,
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
                 child: Text(
-                  category.name!,
+                  category.label,
                   style: TextStyle(
                     color: Colors.black,
                   ),
@@ -129,12 +95,7 @@ class CategoryButton extends StatelessWidget {
             ],
           ),
         ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => MainGroceryStoreApp()),
-          );
-        },
+        onPressed: () {},
       ),
     );
   }
